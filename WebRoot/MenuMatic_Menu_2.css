@@ -1,0 +1,141 @@
+/* Based partially on Matthew Carroll's keyboard accessible flavor of Suckerfish 
+ * Dropdowns by Patrick Griffiths and Dan Webb. 
+ * http://carroll.org.uk/sandbox/suckerfish/bones2.html
+ */
+/* ----[ LINKS ]----*/
+/* all menu links */
+#Menu a, #Menu_menuContainer a{
+	text-decoration:none;
+	display:block;
+}
+/* Just main menu links --[for non-javascript users this applies to submenu links as well]*/
+#Menu a{
+	margin: 0;
+	color: #447051;
+	font-family: "Trebuchet MS";
+	font-size: 16.0px;
+	padding: 10px 20px 10px 10px;
+	background-color: #eeffee;
+}
+#Menu li+li a {
+	border-top: 1px solid #ffffff;
+}
+/* Just sub menu links */
+#Menu_menuContainer a, #Menu li li a{
+	text-align:left;
+	color: #447051;
+	font-family: "Trebuchet MS";
+	font-size: 13.0px;
+	padding: 10px 20px 10px 10px;
+	background-color: #ffffff;
+}
+#Menu_menuContainer li+li a, #Menu li li+li a{
+	border-top: 1px solid #eeeeee;
+}
+/* Main menu links on hover or focus */
+#Menu a:hover, #Menu a:focus, #Menu a.mainMenuParentBtnFocused {
+	color: #eeffee;
+	background-color: #9fc2ad; 
+}
+/* Sub menu links on hover or focus */
+#Menu_menuContainer a:hover, #Menu_menuContainer a:focus, #Menu_menuContainer a.subMenuParentBtnFocused{
+	color: #eeffee;
+	background-color: #9fc2ad;
+}
+/* Parent Sub Menu Links ---[javascript users only]*/
+#Menu_menuContainer .subMenuParentBtn {
+	background-image: url('../Images/TSWNavigationMenuArrowSubRight_447051.png');
+	background-position: right center;
+	background-repeat: no-repeat;
+}
+/* Parent Sub Menu Links on hover or focus ---[javascript users only]*/
+#Menu_menuContainer .subMenuParentBtnFocused {
+	background-image: url('../Images/TSWNavigationMenuArrowSubRightHover_EEFFEE.png');
+	background-position: right center;
+	background-repeat: no-repeat;
+}
+/* Parent Main Menu Links ---[javascript users only]*/
+#Menu .mainMenuParentBtn {
+	background-image: url('../Images/TSWNavigationMenuArrowRight_447051.png');
+	background-position: right center;
+	background-repeat: no-repeat;
+}
+/* Parent Main Menu Links on hover or focus ---[javascript users only]*/
+#Menu .mainMenuParentBtnFocused {
+	background-image: url('../Images/TSWNavigationMenuArrowRightHover_EEFFEE.png');
+	background-position: right center;
+	background-repeat: no-repeat;
+}
+/* ----[ OLs ULs, LIs, and DIVs ]----*/
+/* Submenu Outer Wrapper - each submenu is inside a div with this class - javascript users only */
+.smOW{ 
+	display:none; 
+	position: absolute; 
+	overflow:hidden; 
+	/*the 2px left and right padding lets you have a 1px border 
+	  on the ul or ol inside since overflow is set to hidden*/
+	padding:0 2px;
+	margin:0 0 0 -2px;
+}
+/* All ULs and OLs */
+#Menu, #Menu ul, #Menu ol, #Menu_menuContainer ul, #Menu_menuContainer ol { 
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	line-height: 1.5em;
+}
+/* All submenu OLs and ULs */
+#Menu ol, #Menu ul, #Menu_menuContainer ul, #Menu_menuContainer ol {	
+	/*border around submenu goes here*/	 
+	border:1px solid #9fc2ad;
+	left:0;
+}
+/* List items in main menu --[for non-javascript users this applies to submenus as well]  */
+#Menu li { 
+	/*great place to use a background image as a divider*/
+	display:block;
+	list-style:none;
+	position:relative;
+}
+#Menu_menuContainer li{
+	list-style: none;
+}
+/* main menu ul or ol elment */
+#Menu{
+	display:block;
+	list-style:none;
+	margin:0 0 0 0;
+	z-index:5;
+	text-align: center;
+	width: 100px;
+	border: 1px solid #9fc2ad;
+}
+#Menu_menuContainer{	display:block; 	position:absolute;	top:0;	left:0;	width:100%;	height:0;	overflow:visible;	z-index:1000000000; }
+/* --------------------------[ The below is just for non-javscript users ]--------------------------*/
+#Menu li li {
+	float:none; 
+}
+#Menu li li a{ /* Just submenu links*/	
+	position:relative;
+	float:none;
+}
+#Menu li ul { /* second-level lists */
+	position: absolute;
+	width: 10em;
+	margin-left: -1000em; /* using left instead of display to hide menus because display: none isn't read by screen readers */
+	margin-top:2.2em;
+}
+/* third-and-above-level lists */
+#Menu li ul ul { margin: -1em 0 0 -1000em; }
+#Menu li:hover ul ul {	margin-left: -1000em; }
+ /* lists nested under hovered list items */
+#Menu li:hover ul{	margin-left: 0; }
+#Menu li li:hover ul {	margin-left: 10em; margin-top:-2.5em;}
+/* extra positioning rules for limited noscript keyboard accessibility */
+#Menu li a:focus + ul {  margin-left: 0; margin-top:2.2em; }
+#Menu li li a:focus + ul { left:0; margin-left: 1010em; margin-top:-2.2em;}
+#Menu li li a:focus {left:0;  margin-left:1000em; width:10em;  margin-top:0;}
+#Menu li li li a:focus {left:0; margin-left: 2010em; width: 10em;  margin-top:-1em;}
+#Menu li:hover a:focus{ margin-left: 0; }
+#Menu li li:hover a:focus + ul { margin-left: 10em; }
+#Menu ul, #Menu ol { z-index: 1000000000; }
