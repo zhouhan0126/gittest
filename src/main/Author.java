@@ -1,7 +1,7 @@
 package main;
 
 public class Author {
-	private String AuthorID;
+
 	private String Name;
 	private int Age;
 	private String Country;
