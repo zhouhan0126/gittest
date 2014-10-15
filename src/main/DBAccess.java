@@ -12,11 +12,29 @@ public class DBAccess {
 	private Connection  con = null;
 	private PreparedStatement stmt = null;
 	private ResultSet rs = null;
+	ort java.util.Date;
+
+public class DBAccess {
+	private Connection  con = null;
+	private PreparedStatement stmt = null;
+	private ResultSet rs = null;
+	ort java.util.Date;
+
+public class DBAccess {
+	private Connection  con = null;
+	private PreparedStatement stmt = null;
+	private ResultSet rs = null;
+	ort java.util.Date;
+
+public class DBAccess {
+	private Connection  con = null;
+	private PreparedStatement stmt = null;
+	private ResultSet rs = null;
 	
 	public DBAccess(){
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			con = DriverManager.getConnection("jdbc:mysql://w.rdc.sae.sina.com.cn:3307/app_lab2zhouhan","y3ml3k4mll","w3y4zx1y303m224x11435xxk5i11x32jmiml13i2");//Á´½ÓÊı¾İ¿â
+			con = DriverManager.getConnection("jdbc:mysql://w.rdc.sae.sina.com.cn:3307/app_lab2zhouhan","y3ml3k4mll","w3y4zx1y303m224x11435xxk5i11x32jmiml13i2");//é“¾æ¥æ•°æ®åº“
 			System.out.println(con);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -30,9 +48,9 @@ public class DBAccess {
 			String sql = "select Title from Book natural join Author where Name = ?";
 			
 			//System.out.println(sql);
-			stmt = con.prepareStatement(sql);//statmentÏñÊı¾İ¿â·¢ËÍsqlÓï¾ä£¬conÊÇÒ»¸öÁ¬½ÓÇı¶¯
+			stmt = con.prepareStatement(sql);//statmentåƒæ•°æ®åº“å‘é€sqlè¯­å¥ï¼Œconæ˜¯ä¸€ä¸ªè¿æ¥é©±åŠ¨
 			stmt.setString(1, Author);
-			rs = stmt.executeQuery();//rs½á¹û¼¯£¬²éÑ¯·µ»Ø½á¹û¼¯
+			rs = stmt.executeQuery();//rsç»“æœé›†ï¼ŒæŸ¥è¯¢è¿”å›ç»“æœé›†
 			while(rs.next()){
 				String Title = rs.getString("Title");
 				bookname.add(Title);
@@ -50,9 +68,9 @@ public class DBAccess {
 			String sql = "select * from Book natural join Author where Title=?";
 			
 			//System.out.println(sql);
-			stmt = con.prepareStatement(sql);//statmentÏñÊı¾İ¿â·¢ËÍsqlÓï¾ä£¬conÊÇÒ»¸öÁ¬½ÓÇı¶¯
+			stmt = con.prepareStatement(sql);//statmentåƒæ•°æ®åº“å‘é€sqlè¯­å¥ï¼Œconæ˜¯ä¸€ä¸ªè¿æ¥é©±åŠ¨
 			stmt.setString(1, Title);
-			rs = stmt.executeQuery();//rs½á¹û¼¯£¬²éÑ¯·µ»Ø½á¹û¼¯
+			rs = stmt.executeQuery();//rsç»“æœé›†ï¼ŒæŸ¥è¯¢è¿”å›ç»“æœé›†
 			while(rs.next()){
 				detail1.setTitle( rs.getString("Title"));
 				detail1.setAge(rs.getInt("Age"));
@@ -76,7 +94,7 @@ public class DBAccess {
 		try {
 			String sql = "delete from Book where Title= ?";
 			//System.out.println(sql);
-			stmt = con.prepareStatement(sql);//statmentÏñÊı¾İ¿â·¢ËÍsqlÓï¾ä£¬conÊÇÒ»¸öÁ¬½ÓÇı¶¯
+			stmt = con.prepareStatement(sql);//statmentåƒæ•°æ®åº“å‘é€sqlè¯­å¥ï¼Œconæ˜¯ä¸€ä¸ªè¿æ¥é©±åŠ¨
 			
 			stmt.setString(1, Title);
 			stmt.executeUpdate();
@@ -91,7 +109,7 @@ public class DBAccess {
 		try {
 			String sql = "update Book set AuthorID=?,Publisher=?,Price=?,PublishDate=? where Title=?";
 			//System.out.println(sql);
-			stmt = con.prepareStatement(sql);//statmentÏñÊı¾İ¿â·¢ËÍsqlÓï¾ä£¬conÊÇÒ»¸öÁ¬½ÓÇı¶¯
+			stmt = con.prepareStatement(sql);//statmentåƒæ•°æ®åº“å‘é€sqlè¯­å¥ï¼Œconæ˜¯ä¸€ä¸ªè¿æ¥é©±åŠ¨
 			
 			stmt.setString(1, zhu.getAuthorID());
 			stmt.setString(2,zhu.getPublisher());
@@ -107,7 +125,7 @@ public class DBAccess {
 		try {
 			String sql = "insert into Book (ISBN,Title,AuthorID,Publisher,PublishDate,Price) values (?,?,?,?,?,?)";
 			//System.out.println(sql);
-			stmt = con.prepareStatement(sql);//statmentÏñÊı¾İ¿â·¢ËÍsqlÓï¾ä£¬conÊÇÒ»¸öÁ¬½ÓÇı¶¯
+			stmt = con.prepareStatement(sql);//statmentåƒæ•°æ®åº“å‘é€sqlè¯­å¥ï¼Œconæ˜¯ä¸€ä¸ªè¿æ¥é©±åŠ¨
 			stmt.setString(1, zhu.getISBN());
 			stmt.setString(2, zhu.getTitle());
 			stmt.setString(3, zhu.getAuthorID());
