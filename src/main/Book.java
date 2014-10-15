@@ -3,12 +3,7 @@ import java.sql.Date;
 
 
 public class Book {
-	private String ISBN;
-	private String Title;
-	private String AuthorID;
-	private String Publisher;
-	private Date PublishDate;
-	private float Price;
+ce;
 	
 	public Book(){};
 	public Book(String iSBN, String title, String authorID, String publisher,
